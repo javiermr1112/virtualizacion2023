@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Blog Personal - Javier Roza</title>
+</head>
+<body>
+    <header>
+        <h1>Blog Personal de Javier Roza</h1>
+    </header>
+    <main>
+        <section class="personal-info">
+            <h2>Datos personales</h2>
+            <p><strong>Nombre y Apellido:</strong> Javier Roza</p>
+            <p><strong>DNI:</strong> 34910490</p>
+            <p><strong>Legajo:</strong> 422274</p>
+            <p><strong>Fecha de Nacimiento:</strong> 11 de Diciembre de 1990</p>
+        </section>
+        <section class="profile-image">
+            <h2>Imagen Personal</h2>
+            <img src="FotoPerfil.jpeg" alt="Imagen personal de Javier Roza">
+        </section>
+        <section class="alumnos-data">
+            <h2>Datos de Alumnos</h2>
+            <table id="alumnos-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Legajo</th>
+                    <th>DNI</th>
+                    <th>Apellido y Nombre</th> 
+                </tr>
+                <?php
+                $mysqli = new mysqli("192.168.77.217", "34910490", "34910490", "alumnos", 3306);
+
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $mysqli->connect_error);
+}
+
+$query = "SELECT * FROM alumnos";
+$result = $mysqli->query($query);
+
+while ($row = $result->fetch_assoc()) {
+    echo "<tr>
+        <td>" . $row["id"] . "</td>
+        <td>" . $row["legajo"] . "</td>
+        <td>" . $row["dni"] . "</td>
+        <td>" . $row["apellidoYnombre"] . "</td>
+        </tr>";
+}
+                ?>
+                <!-- Aquí se cargarán los datos de los alumnos desde la base de datos -->
+            </table>
+        </section>        
+        <section class="pdf-link">
+            <h2>Informe TPF</h2>
+            <p>Haz clic en el botón de abajo para acceder al informe del TPF:</p>
+            <a href="TPF_Virtualizacion-Issolio_Tomas.pdf" class="read-button">Leer Informe</a>
+        </section>
+    </main>
+    <footer>
+        <p>© 2023 Javier Roza - Blog Personal</p>
+    </footer>
+</body>
+</html>
