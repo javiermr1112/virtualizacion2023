@@ -7,21 +7,21 @@ body, h1, h2, h3, p, img {
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
-    color: #ff8080; /* Color de letras rojo claro */
-    background-color: #b3e0ff; /* Fondo celeste */
+    color: #333; /* Cambié el color del texto a un gris oscuro */
+    background-color: #66cc99; /* Cambié el color de fondo a verde */
     line-height: 1.6;
 }
 
 /* Estilos del encabezado */
 header {
-    background-color: #66a3ff; /* Azul más oscuro */
+    background-color: #008000; /* Cambié el color del encabezado a verde oscuro */
     color: white;
     text-align: center;
     padding: 20px 0;
 }
 
 h1 {
-    font-size: 2em;
+    font-size: 2.5em; /* Aumenté el tamaño del encabezado principal */
 }
 
 /* Estilos del contenido principal */
@@ -36,19 +36,26 @@ section {
     margin: 20px 0;
     padding: 20px;
     border: 1px solid #ccc;
-    background-color: #f2f2f2; /* Color de fondo pastel */
+    background-color: #f9f9f9; /* Cambié el color de fondo del contenido a un gris más claro */
+    text-align: center;
+    border-radius: 10px; /* Agregué bordes redondeados */
+}
+
+.profile-image {
     text-align: center;
 }
 
 .profile-image img {
     max-width: 100%;
     height: auto;
+    max-height: 200px;
+    margin-top: 10px;
 }
 
 .pdf-link .read-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #004080; /* Azul más oscuro */
+    background-color: #009933; /* Cambié el color del botón a verde */
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -56,13 +63,13 @@ section {
 }
 
 .pdf-link .read-button:hover {
-    background-color: #00264d; /* Azul oscuro resaltante */
+    background-color: #007722; /* Cambié el color de resaltado del botón */
 }
 
 /* Estilos del pie de página */
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #66a3ff; /* Azul más oscuro */
+    background-color: #008000; /* Cambié el color del pie de página a verde oscuro */
     color: white;
 }
