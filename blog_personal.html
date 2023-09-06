@@ -1,66 +1,76 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Blog Personal - Javier Roza</title>
-</head>
-<body>
-    <header>
-        <h1>Blog Personal de Javier Roza</h1>
-    </header>
-    <main>
-        <section class="personal-info">
-            <h2>Datos personales</h2>
-            <p><strong>Nombre y Apellido:</strong> Javier Roza</p>
-            <p><strong>DNI:</strong> 34910490</p>
-            <p><strong>Legajo:</strong> 422274</p>
-            <p><strong>Fecha de Nacimiento:</strong> 11 de Diciembre de 1990</p>
-        </section>
-        <section class="profile-image">
-            <h2>Imagen Personal</h2>
-            <img src="FotoPerfil.jpeg" alt="Imagen personal de Javier Roza">
-        </section>
-        <section class="alumnos-data">
-            <h2>Datos de Alumnos</h2>
-            <table id="alumnos-table">
-                <tr>
-                    <th>ID</th>
-                    <th>Legajo</th>
-                    <th>DNI</th>
-                    <th>Apellido y Nombre</th> 
-                </tr>
-                <?php
-                $mysqli = new mysqli("192.168.77.217", "34910490", "34910490", "alumnos", 3306);
-
-if ($mysqli->connect_error) {
-    die("Connection failed: " . $mysqli->connect_error);
+/* Reset de márgenes y padding */
+body, h1, h2, h3, p, img {
+    margin: 0;
+    padding: 0;
 }
 
-$query = "SELECT * FROM alumnos";
-$result = $mysqli->query($query);
-
-while ($row = $result->fetch_assoc()) {
-    echo "<tr>
-        <td>" . $row["id"] . "</td>
-        <td>" . $row["legajo"] . "</td>
-        <td>" . $row["dni"] . "</td>
-        <td>" . $row["apellidoYnombre"] . "</td>
-        </tr>";
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    color: #444; /* Cambié el color del texto a un gris más oscuro */
+    background-color: #e0ffe0; /* Cambié el color de fondo a un verde más claro */
+    line-height: 1.6;
 }
-                ?>
-                <!-- Aquí se cargarán los datos de los alumnos desde la base de datos -->
-            </table>
-        </section>        
-        <section class="pdf-link">
-            <h2>Informe TPF</h2>
-            <p>Haz clic en el botón de abajo para acceder al informe del TPF:</p>
-            <a href="TPF_Virtualizacion-Issolio_Tomas.pdf" class="read-button">Leer Informe</a>
-        </section>
-    </main>
-    <footer>
-        <p>© 2023 Javier Roza - Blog Personal</p>
-    </footer>
-</body>
-</html>
+
+/* Estilos del encabezado */
+header {
+    background-color: #228b22; /* Cambié el color del encabezado a un verde más oscuro */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+h1 {
+    font-size: 2.8em; /* Aumenté aún más el tamaño del encabezado principal */
+}
+
+/* Estilos del contenido principal */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Cambié la alineación de los elementos a la izquierda */
+    padding: 20px;
+}
+
+section {
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5; /* Cambié el color de fondo del contenido a un gris más claro */
+    text-align: left; /* Alineación del texto a la izquierda */
+    border-radius: 15px; /* Aumenté el radio de borde para que se vea más redondeado */
+    box-shadow: 3px 3px 5px #888888; /* Agregué una sombra a los elementos */
+}
+
+.profile-image {
+    text-align: center;
+}
+
+.profile-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
+    margin-top: 10px;
+}
+
+.pdf-link .read-button {
+    display: inline-block;
+    padding: 12px 24px; /* Aumenté el espaciado del botón */
+    background-color: #006400; /* Cambié el color del botón a verde oscuro */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px; /* Aumenté el radio de borde del botón */
+    transition: background-color 0.3s;
+}
+
+.pdf-link .read-button:hover {
+    background-color: #004400; /* Cambié el color de resaltado del botón */
+}
+
+/* Estilos del pie de página */
+footer {
+    text-align: center;
+    padding: 15px; /* Aumenté el espaciado en el pie de página */
+    background-color: #228b22; /* Cambié el color del pie de página a verde oscuro */
+    color: white;
+}
